@@ -1,0 +1,2 @@
+class ShortsController < ApplicationController
+end
