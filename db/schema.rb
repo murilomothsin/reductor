@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2019_04_25_125358) do
     t.integer "click_count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["url"], name: "index_shorts_on_url", unique: true
+    t.index ["url_digest"], name: "index_shorts_on_url_digest", unique: true
   end
 
 end

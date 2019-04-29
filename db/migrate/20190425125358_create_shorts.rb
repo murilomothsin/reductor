@@ -3,7 +3,7 @@ class CreateShorts < ActiveRecord::Migration[5.2]
     create_table :shorts do |t|
       t.string :url, null: false
       t.string :url_digest, null: false
-      t.integer :click_count
+      t.integer :click_count, default: 0
 
       t.timestamps
     end
