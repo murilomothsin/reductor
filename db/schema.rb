@@ -17,8 +17,9 @@ ActiveRecord::Schema.define(version: 2019_04_25_125358) do
 
   create_table "shorts", force: :cascade do |t|
     t.string "url", null: false
+    t.text "page_title"
     t.string "url_digest", null: false
-    t.integer "click_count"
+    t.integer "click_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["url"], name: "index_shorts_on_url", unique: true

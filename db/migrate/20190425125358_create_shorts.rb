@@ -2,6 +2,7 @@ class CreateShorts < ActiveRecord::Migration[5.2]
   def change
     create_table :shorts do |t|
       t.string :url, null: false
+      t.text :page_title
       t.string :url_digest, null: false
       t.integer :click_count, default: 0
 
