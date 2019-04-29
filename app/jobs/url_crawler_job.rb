@@ -1,4 +1,6 @@
+require 'nokogiri'
 require 'open-uri'
+
 class UrlCrawlerJob < ApplicationJob
   queue_as :default
 
