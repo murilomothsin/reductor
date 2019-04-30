@@ -5,6 +5,7 @@ The ultimate Shortener URL
 ## SETUP
 
 * Install docker (https://docs.docker.com/install/)
+* copy `.env.sample` to `.env`  ==> `cp .env.sample .env`
 * run `docker-compose build`
 * run `docker volume create --name=postgres_database`
 * run `docker-compose run web rake db:create`
