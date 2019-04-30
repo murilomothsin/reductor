@@ -2,7 +2,8 @@ class ShortsController < ApplicationController
   
   def index
     UrlCrawlerJob.perform_later(true)
-    render json: Short.all.order(click_count: :desc).limit(100)
+    shorts = Short.all.order(click_count: :desc).limit(100)
+    render json: { shorts: shorts, root_url: "#{request.protocol}#{request.host_with_port}/s/" }
   end
 
   def create
