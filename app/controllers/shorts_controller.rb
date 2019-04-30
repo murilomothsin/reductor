@@ -1,13 +1,14 @@
 class ShortsController < ApplicationController
   
   def index
-    render json: Short.all.order(click_count: :desc)
+    UrlCrawlerJob.perform_later(true)
+    render json: Short.all.order(click_count: :desc).limit(100)
   end
 
   def create
     @short = Short.new(short_param)
     if @short.save
-      render json: @short
+      render json: { url: "#{request.protocol}#{request.host_with_port}/s/#{@short.url_digest}" }
     else
       render json: {errors: @short.errors.full_messages}, status: :unprocessable_entity
     end
@@ -23,9 +24,6 @@ class ShortsController < ApplicationController
     else
       head :temporary_redirect, :location => root_url
     end
-  end
-
-  def delete
   end
 
   private
